@@ -9,7 +9,7 @@ allprojects {
 }
 
 subprojects {
-    group = "org.example"
+    group = "aaagt.creational"
     version = "1.0-SNAPSHOT"
 
     tasks.withType<JavaCompile>().configureEach {

@@ -4,7 +4,7 @@ plugins {
 
 
 application {
-    mainClass.set("Main")
+    mainClass.set("aaagt.creational.Main")
 }
 
 
