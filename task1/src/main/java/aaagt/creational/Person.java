@@ -4,8 +4,8 @@ import java.util.Optional;
 
 public class Person {
 
-    String name;
-    String surname;
+    final String name;
+    final String surname;
     Optional<Integer> age;
     Optional<String> address;
 
@@ -24,12 +24,8 @@ public class Person {
         return surname;
     }
 
-    public Optional<Integer> getAge() {
-        if (hasAge()) {
-            return age;
-        } else {
-            throw new IllegalStateException("Возраст неопределён");
-        }
+    public Integer getAge() {
+        return age.orElseThrow(() -> new IllegalStateException("Возраст неопределён"));
     }
 
     public boolean hasAge() {
@@ -37,23 +33,19 @@ public class Person {
     }
 
     public void happyBirthday() {
-        if (hasAge()) {
-            age = Optional.of(age.get() + 1);
-        } else {
-            throw new IllegalStateException("Возраст неопределён");
-        }
+        final var currentAge = age.orElseThrow(
+                () -> new IllegalStateException("Возраст неопределён")
+        );
+
+        age = Optional.of(currentAge + 1);
     }
 
-    public Optional<String> getAddress() {
-        if (hasAddress()) {
-            return address;
-        } else {
-            throw new IllegalStateException("Адрес неопределён");
-        }
+    public String getAddress() {
+        return address.orElseThrow(() -> new IllegalStateException("Адрес неопределён"));
     }
 
-    public void setAddress(String city) {
-        address = Optional.ofNullable(city);
+    public void setAddress(Optional<String> address) {
+        this.address = address;
     }
 
     public boolean hasAddress() {
