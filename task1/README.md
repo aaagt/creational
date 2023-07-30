@@ -49,7 +49,8 @@ Person person=new PersonBuilder()
 заполненными фамилией (родительской), возрастом и текущим городом жительства (
 родительским).
 
-Продемонстрируйте работу ваших классов в классе `aaagt.creational.Main` (
+Продемонстрируйте работу ваших классов в
+классе `aaagt.creational.logger.Main` (
 необязательно
 реализовывать ввод данных от пользователя).
 
@@ -136,10 +137,10 @@ public class Person {
 }
 ```
 
-6. Добавьте класс `aaagt.creational.Main` для демонстрации
+6. Добавьте класс `aaagt.creational.logger.Main` для демонстрации
 
 ```java
-public class aaagt.creational.Main {
+public class aaagt.creational.logger.Main {
     public static void main(String[] args) {
         Person mom = new PersonBuilder()
             .setName("Анна")
